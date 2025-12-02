@@ -1,0 +1,437 @@
+/* ================= RESET BÁSICO ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de Cor - Fácil de mudar depois */
+:root {
+    /* A paleta "Future.co": Escuro premium e Neon tecnológico */
+    --bg-color: #0a0a0a; /* Quase preto */
+    --text-color: #ffffff;
+    --text-secondary: #a0a0a0; /* Cinza claro para subtítulos */
+    --accent-color: #00ffc3; /* Um Verde/Ciano Neon estilo "Matrix/Tech" */
+    --font-main: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    width: 100%; /* ADICIONE ISSO: Garante que o menu ocupe a largura total */
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.dot {
+    color: var(--accent-color); /* O ponto neon no final do logo */
+}
+
+.btn-nav {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-nav:hover {
+    border-color: var(--accent-color);
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* ADICIONE ISSO: Permite que o menu fique na linha de cima */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.hero-content {
+    flex: 1; /* Ocupa metade do espaço */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px; /* Um pouco mais estreito para ficar elegante */
+    /* removemos o margin-top negativo que tinha aqui */
+}
+
+h1 {
+    font-size: 4rem; /* Texto bem grande estilo Future.co */
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    /* Um efeito sutil de gradiente no texto, muito moderno */
+    background: linear-gradient(90deg, #ffffff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* ================= BOTÕES ================= */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Texto escuro no botão neon para contraste */
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px; /* Botão arredondado moderno */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px); /* Efeito de "levantar" ao passar o mouse */
+    box-shadow: 0 10px 20px -10px rgba(0, 255, 195, 0.5); /* Sombra neon */
+}
+
+.no-card-needed {
+    font-size: 0.9rem !important;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+/* ================= IMAGEM FLUTUANTE ================= */
+.hero-image-container {
+    flex: 1; /* Ocupa a outra metade do espaço */
+    display: flex;
+    justify-content: flex-end; /* Alinha a imagem à direita */
+    position: relative;
+}
+
+.floating-phone {
+    /* 1. Forçar o formato de Celular (Alto e Estreito) */
+    width: 300px;
+    height: 600px;
+    object-fit: cover; /* Isso corta a imagem para caber no celular sem esticar */
+
+    /* 2. Moldura Arredondada */
+    border-radius: 50px; 
+
+    /* 3. Borda Dupla (Truque para parecer um aparelho físico) */
+    /* Borda interna preta (a moldura da tela) */
+    border: 10px solid #000000; 
+    
+    /* Borda externa cinza (o corpo de metal do celular) criada com sombra sólida */
+    box-shadow: 
+        0 0 0 4px #555555, /* O anel metálico em volta */
+        0 30px 60px rgba(0,0,0,0.8), /* Sombra pesada no fundo */
+        0 0 80px rgba(0, 255, 195, 0.3); /* O brilho neon verde atrás */
+
+    /* A animação de flutuar */
+    animation: float 6s ease-in-out infinite;
+    
+    /* Garante que fique acima de outros elementos se encostar */
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); } /* Sobe 20px */
+    100% { transform: translateY(0px); }
+}
+/* ================= SEÇÃO 2: DORES ================= */
+.pain-points {
+    padding: 5rem 5%;
+    background-color: #0a0a0a; /* Mantém o fundo escuro */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.highlight-red {
+    color: #ff4757; /* Um vermelho neon para a palavra "caótica" */
+}
+
+.cards-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap; /* Se a tela for pequena, joga os cards pra baixo */
+}
+
+/* Estilo do Cartão */
+.card {
+    background: #161616; /* Um cinza um pouco mais claro que o fundo */
+    padding: 2.5rem;
+    border-radius: 20px;
+    flex: 1; /* Faz os 3 ocuparem o mesmo espaço */
+    min-width: 280px; /* Não deixa ficar muito pequeno */
+    border: 1px solid #333;
+    transition: 0.3s ease;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.card:hover {
+    transform: translateY(-10px); /* Sobe um pouquinho */
+    border-color: var(--accent-color); /* Borda fica verde neon */
+    box-shadow: 0 10px 30px rgba(0, 255, 195, 0.1); /* Brilho verde */
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--accent-color); /* Ícone verde neon */
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+/* ================= SEÇÃO 3: VITRINE (ZIG-ZAG) ================= */
+.features-section {
+    padding: 5rem 5%;
+    background-color: #0a0a0a;
+}
+
+.feature-block {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+    margin-bottom: 8rem; /* Espaço grande entre um bloco e outro */
+    gap: 4rem;
+}
+
+/* Essa classe mágica inverte a ordem para o segundo bloco */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Estilo do Texto */
+.feature-text {
+    flex: 1; /* Ocupa metade da tela */
+    max-width: 500px;
+}
+
+.feature-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.feature-text p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* A Tagzinha Neon em cima do título */
+.tag {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Link com setinha */
+.link-arrow {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.link-arrow:hover {
+    color: var(--accent-color);
+}
+
+/* Estilo das Imagens (Telas do App) */
+.feature-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.app-screen {
+    width: 100%;
+    max-width: 550px;
+    
+    /* ADICIONADO: Força uma altura padrão para todos */
+    height: 350px; 
+    object-fit: cover; /* Corta a imagem para preencher o espaço sem esticar */
+    
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border: 1px solid #333;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 195, 0.1));
+    transition: 0.3s ease;
+}
+/* ================= RODAPÉ (FOOTER) ================= */
+footer {
+    background-color: #000000; /* Fundo preto total para contraste */
+    padding: 3rem 5%;
+    border-top: 1px solid #1a1a1a; /* Linha sutil para separar do corpo */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-info {
+    max-width: 400px;
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Links Sociais (Ícones) */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent-color); /* Efeito neon no hover */
+    transform: translateY(-3px);
+}
+/* ================= MEDIA QUERIES (OTIMIZAÇÃO MOBILE) ================= */
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste da Hero Section (Topo) */
+    .hero {
+        padding-top: 2rem;
+        flex-direction: column; /* Força o celular a ficar embaixo do texto */
+        min-height: auto; /* Remove a altura mínima forçada */
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem; /* Diminui a fonte grande para caber no celular */
+    }
+
+    .hero-image-container {
+        justify-content: center; /* Centraliza a imagem no meio */
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    /* 2. Ajuste do Celular (Para caber na largura do mobile) */
+    .floating-phone {
+        width: 280px;
+        height: 560px;
+    }
+
+    /* 3. Ajuste da Seção Zig-Zag (O Ponto Principal) */
+    .feature-block {
+        flex-direction: column; /* Força o texto em cima e a imagem embaixo */
+        gap: 2rem;
+    }
+    
+    /* Zera a inversão de ordem no mobile */
+    .feature-block.reverse {
+        flex-direction: column;
+    }
+    
+    .feature-text {
+        max-width: 100%;
+    }
+    
+    .feature-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .tag {
+        text-align: center;
+        display: block;
+    }
+    
+    .feature-image-container {
+        width: 100%;
+        order: -1; /* Força a imagem a ir para cima do texto no primeiro bloco */
+    }
+
+    .feature-block.reverse .feature-image-container {
+        order: -1; /* Força a imagem a ir para cima do texto no segundo bloco também */
+    }
+
+    .app-screen {
+        max-width: 90%;
+        height: auto;
+    }
+
+    /* 4. Ajuste dos Cards (Empilhamento) */
+    .cards-grid {
+        justify-content: center;
+    }
+
+    .card {
+        min-width: 90%;
+    }
+
+    /* 5. Ajuste do Rodapé */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 1.5rem;
+    }
+}

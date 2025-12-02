@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SincroFit App</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="user-info">
+            <span class="greeting">Bom dia, Lucas 👋</span>
+            <p class="subtitle">Foco total hoje!</p>
+        </div>
+        <div class="profile-pic">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop" alt="Perfil">
+        </div>
+    </header>
+
+    <section class="workout-summary">
+        <div class="card-highlight">
+            <div class="card-text">
+                <span class="tag-today">TREINO DE HOJE</span>
+                <h2>Treino A: Peito e Tríceps</h2>
+                <p>⏱️ 45 min • 🔥 Intenso</p>
+            </div>
+            <button class="btn-start">Iniciar</button>
+        </div>
+    </section>
+
+    <main class="exercise-list">
+        <h3>Sua sequência</h3>
+
+        <div class="exercise-card">
+            <div class="check-circle"><i class="ri-check-line"></i></div>
+            <div class="exercise-info">
+                <h4>Supino Reto com Halteres</h4>
+                <p>4 séries • 10 a 12 repetições</p>
+            </div>
+            <div class="video-btn"><i class="ri-play-circle-line"></i></div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="check-circle"><i class="ri-check-line"></i></div>
+            <div class="exercise-info">
+                <h4>Crucifixo Inclinado</h4>
+                <p>3 séries • 12 a 15 repetições</p>
+            </div>
+            <div class="video-btn"><i class="ri-play-circle-line"></i></div>
+        </div>
+
+        <div class="exercise-card">
+            <div class="check-circle"><i class="ri-check-line"></i></div>
+            <div class="exercise-info">
+                <h4>Tríceps Corda</h4>
+                <p>4 séries • 15 repetições (Drop-set)</p>
+            </div>
+            <div class="video-btn"><i class="ri-play-circle-line"></i></div>
+        </div>
+    </main>
+    <div id="video-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="video-frame" width="100%" height="315" src="" title="Vídeo do Exercício" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+    ...
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active"><i class="ri-home-4-fill"></i><span>Home</span></a>
+        <a href="#" class="nav-item"><i class="ri-calendar-check-fill"></i><span>Treinos</span></a>
+        <a href="#" class="nav-item"><i class="ri-user-3-fill"></i><span>Perfil</span></a>
+    </nav>
+    <script src="app.js"></script>
+</body>
+</html>
