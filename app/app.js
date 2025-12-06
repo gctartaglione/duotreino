@@ -55,41 +55,50 @@ async function carregarTreino(userId) {
 }
 
 
-// ================= FUNÇÃO 3: DESENHAR O TREINO NA TELA =================
+// ================= FUNÇÃO 3: DESENHAR O TREINO NA TELA (CORRIGIDA) =================
 function renderizarTreino(treino) {
-    // Atualiza Título e Descrição no Card Roxo
+    // Atualiza Título e Descrição
     document.querySelector('.card-text h2').innerText = treino.titulo;
     document.querySelector('.card-text p').innerText = treino.descricao;
 
-    // Limpa a lista antiga (os exemplos hardcoded)
     const lista = document.querySelector('.exercise-list');
+    lista.innerHTML = '<h3>Sua sequência</h3>';
+
+    // --- CORREÇÃO DO ERRO ---
+    let exerciciosReais = [];
     
-    // Remove os exercícios velhos, MANTENDO o título <h3>
-    const tituloLista = lista.querySelector('h3');
-    lista.innerHTML = ''; 
-    lista.appendChild(tituloLista);
+    // Verifica: Se já é uma lista (Array), usa direto. Se for texto, converte.
+    if (Array.isArray(treino.exercicios)) {
+        exerciciosReais = treino.exercicios;
+    } else if (typeof treino.exercicios === 'string') {
+        try {
+            exerciciosReais = JSON.parse(treino.exercicios);
+        } catch (e) {
+            console.error("Erro ao converter JSON:", e);
+        }
+    }
 
-    // O campo 'exercicios' no banco é um texto JSON. Precisamos converter.
-    const exerciciosReais = JSON.parse(treino.exercicios);
+    // Se a lista estiver vazia ou nula
+    if (!exerciciosReais || exerciciosReais.length === 0) {
+        lista.innerHTML += '<p style="color: #666; padding: 1rem;">Sem exercícios cadastrados.</p>';
+        return;
+    }
 
-    // Cria o HTML para cada exercício do banco
+    // Cria os cards na tela
     exerciciosReais.forEach(ex => {
         const card = document.createElement('div');
         card.className = 'exercise-card';
         card.innerHTML = `
             <div class="check-circle"><i class="ri-check-line"></i></div>
             <div class="exercise-info">
-                <h4>${ex.nome}</h4>
+                <h4>${ex.nome || "Exercício"}</h4>
                 <p>${ex.series} séries • ${ex.reps} repetições</p>
             </div>
             <div class="video-btn"><i class="ri-play-circle-line"></i></div>
         `;
-        
-        // Adiciona na tela
         lista.appendChild(card);
     });
 
-    // Reativa os cliques (Check e Vídeo) nos novos cards criados
     ativarCliques();
 }
 
